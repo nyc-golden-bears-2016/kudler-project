@@ -1,0 +1,26 @@
+<% if @errors %>
+  <%= erb :'_errors', :layout => false, :locals => {things: @things} %>
+<% end %>
+
+   <% unless logged_in? %>
+            <br>
+            <a href="/register">register</a></li> <br>
+            <a href="/login">login</a></li>
+    <%end%>
+   <% if logged_in? %>
+            <br>
+            Hello <%= User.find(session[:user_id]).username %>
+            <a href="/logout">log out</a></li>
+            <br>
+            <a href="/reviews/new">Create New Review</a>
+    <%end%>
+
+
+
+<% @reviews.each do |review| %>
+  <h1> <%= review.title %> </h1>
+      <div> <%= review.body %> </div>
+      <div> <%= vote_count(review.votes)%> </div>
+      by
+      <div> <%= review.reviewer.username %> </div>
+<% end %>
