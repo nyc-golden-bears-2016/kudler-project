@@ -11,5 +11,11 @@ response = Unirest.get "https://nutritionix-api.p.mashape.com/v1_1/search/#{food
   response = response.body
   @info = response
 
+  @exercise = "Ten Hours Of Yoga"
+
+  @entertainment =
+
   erb :'welcome'
 end
+
+
