@@ -12,11 +12,13 @@ gem 'thin'
 
 gem 'activesupport'
 gem 'activerecord'
+gem 'pry'
 
 gem 'rake'
 
 gem 'shotgun'
 gem 'bcrypt'
+gem 'unirest'
 
 group :test do
   gem 'shoulda-matchers'
