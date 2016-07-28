@@ -1,5 +1,31 @@
+<p>Your Lifestyle is <%=@user.lifestyle_type%>
+
+<p>You will be eating <%=@food%> today!</p>
+
+<article>
 <%= @info["hits"][0]["fields"]["item_name"] %>
+</article>
 <br>
-<%= @info["hits"][0]["fields"]["nf_calories"] %>
+<article>
+<%= @info["hits"][0]["fields"]["nf_calories"] %> calories
+</article>
 <br>
-<%= @info["hits"][0]["fields"]["nf_total_fat"] %>
+<article>
+total fat: <%= @info["hits"][0]["fields"]["nf_total_fat"] %>
+</article>
+
+<p>Your work out will be:
+  <article>
+ <%=@exercise%> today!</p>
+</article>
+
+
+<p>Your Entertainment Will Be:
+  <article>
+  Title: <%=@entertainment[@number]["show_title"]%>
+</article>
+  <br>
+  <article>
+  Summary: <%=@entertainment[@number]["summary"]%>
+  </article>
+</p>

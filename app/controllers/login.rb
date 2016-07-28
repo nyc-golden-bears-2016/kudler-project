@@ -33,7 +33,7 @@ put '/sign_up/:id' do
     user.lifestyle_type = "Gwenyth"
   else
     user.lifestyle_type = "Pan"
-    redirect '/welcome'
+    redirect "/welcome/#{user.id}"
   end
 
 
