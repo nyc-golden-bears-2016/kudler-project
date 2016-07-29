@@ -1,12 +1,11 @@
 class User < ActiveRecord::Base
    include BCrypt
 
-  has_many :reviews
-  has_many :votes
 
-
-  validates :username, uniqueness: true, presence: true
+  validates :name, uniqueness: true, presence: true
   validates :password_digest, presence: {message: "Password can't be blank"}
+
+  after_initialize :init
 
 
   has_secure_password
@@ -21,6 +20,11 @@ class User < ActiveRecord::Base
       return nil
     end
   end
+
+  def init
+    self.lifestyle_type ||= "blank"
+  end
+
 
 
 end

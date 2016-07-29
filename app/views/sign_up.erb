@@ -1,0 +1,23 @@
+<% if @errors %>
+  <%= erb :'_errors', :layout => false %>
+<% end %>
+
+
+<br><br>
+<form action="/sign_up/<%=session[:user_id] %>" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <p>Hello, beautiful <%=@user.name%>, you're so blesseed to be here with us, we are so very gracious to have you. We want to design the perfect lifestyle for you, so that you may benefit from our many teachings. We are better than you, be like us, now.  Please enter three keywords that pertain to these words</p>
+    Likeness:<br>
+    <input type = "text"><br>
+    Beauty:<br>
+    <input type = "text"><br>
+    Passion:<br>
+    <input type = "text"><br>
+    <p>Please Give Us A Short Bio </p>
+    <br>
+    <textarea rows="4" cols="50"></textarea><br><br>
+    <p>Finally, would you rather have to handle a live boa constrictor everytime you saw your parents or have to share a sensual but, ultimately, lacking kiss with your computer everytime you opened up sublime?</p>
+    <p>type "parents" for the first one, "sublime" for the second one?</p>
+    <input type = "text" name="user[lifestyle_type]"><br>
+    <input type = "submit" name="Update">
+  </form>
