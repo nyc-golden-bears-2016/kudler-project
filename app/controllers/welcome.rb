@@ -3,13 +3,13 @@ get '/welcome/:id' do
   @user = User.find(params[:id])
 
 if @user.lifestyle_type = "Brad"
- @food = ["salmon", "bread", "pasta", "meat", "pig"].sample
+ @food = ["salmon", "bread", "pasta", "lamb", "hummus"].sample
  @actor = ["Angelina+Jolie", "Brad+Pitt", "Sam+Blackman"].sample
 elsif @user.lifestyle_type = "Gwenyth"
-  @food = ["expensive wall paper", "bagels", "onions", "sushi"].sample
+  @food = ["rice", "bagels", "onions", "sushi"].sample
  @actor = ["Gwyneth+Paltrow", "Donnie+Wahlberg", "Mark+Wahlberg"].sample
 else
-  @food = ["quesadilla", "graham cracker", "ruby", "joe"]
+  @food = ["onion", "cracker", "chicken"]
   @actor = ["Gwyneth+Paltrow", "Donnie+Wahlberg", "Mark+Wahlberg"].sample
 end
 
@@ -21,7 +21,7 @@ response = Unirest.get "https://nutritionix-api.p.mashape.com/v1_1/search/#{@foo
 
   @info = response.body
 
-  if @user.lifestyle_type = "Pan"
+  if @user.lifestyle_type == "Pan"
     @exercise = "No need to work out..."
   else
     @exercise = "Ten Hours Of Yoga"
@@ -36,7 +36,6 @@ response_1 = Unirest.get "https://community-netflix-roulette.p.mashape.com/api.p
 
   @entertainment = response_1.body
   @number = [0,1,2,3,4].sample
-
 
   erb :'welcome'
 

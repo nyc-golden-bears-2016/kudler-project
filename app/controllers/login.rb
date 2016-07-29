@@ -29,10 +29,15 @@ put '/sign_up/:id' do
 
   if params[:user][:lifestyle_type] == "parents"
     user.lifestyle_type = "Brad"
+    user.save
+    redirect "/welcome/#{user.id}"
   elsif params[:user][:lifestyle_type] == "sublime"
     user.lifestyle_type = "Gwenyth"
+    user.save
+    redirect "/welcome/#{user.id}"
   else
     user.lifestyle_type = "Pan"
+    user.save
     redirect "/welcome/#{user.id}"
   end
 
@@ -50,11 +55,11 @@ end
 post '/login' do
 
 
- user = User.find_by(username: params[:user][:username])
+ user = User.find_by(name: params[:user][:name])
 
   if user.authenticate(params[:user][:password])
     session[:user_id] = user.id
-    redirect '/'
+    redirect "/welcome/#{user.id}"
   else
     @errors = user.error.full_messsages
     redirect '/login'
